@@ -1,4 +1,7 @@
 <?php
+// *	@source		See SOURCE.txt for source and other copyright.
+// *	@license	GNU General Public License version 3; see LICENSE.txt
+
 class ControllerProductManufacturer extends Controller {
 	public function index() {
 		$this->load->language('product/manufacturer');
@@ -71,24 +74,28 @@ class ControllerProductManufacturer extends Controller {
 
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 			$sort = 'p.sort_order';
 		}
 
 		if (isset($this->request->get['order'])) {
 			$order = $this->request->get['order'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 			$order = 'ASC';
 		}
 
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 			$page = 1;
 		}
 
 		if (isset($this->request->get['limit'])) {
 			$limit = (int)$this->request->get['limit'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 			$limit = (int)$this->config->get('theme_' . $this->config->get('config_theme') . '_product_limit');
 		}
@@ -108,7 +115,33 @@ class ControllerProductManufacturer extends Controller {
 		$manufacturer_info = $this->model_catalog_manufacturer->getManufacturer($manufacturer_id);
 
 		if ($manufacturer_info) {
-			$this->document->setTitle($manufacturer_info['name']);
+			
+			if ($manufacturer_info['meta_title']) {
+				$this->document->setTitle($manufacturer_info['meta_title']);
+			} else {
+				$this->document->setTitle($manufacturer_info['name']);
+			}
+			
+			if ($manufacturer_info['noindex'] <= 0) {
+				$this->document->setRobots('noindex,follow');
+			}
+			
+			if ($manufacturer_info['meta_h1']) {
+				$data['heading_title'] = $manufacturer_info['meta_h1'];
+			} else {
+				$data['heading_title'] = $manufacturer_info['name'];
+			}
+			
+			$this->document->setDescription($manufacturer_info['meta_description']);
+			$this->document->setKeywords($manufacturer_info['meta_keyword']);
+			$data['description'] = html_entity_decode($manufacturer_info['description'], ENT_QUOTES, 'UTF-8');
+			
+			
+			if ($manufacturer_info['image']) {
+				$data['thumb'] = $this->model_tool_image->resize($manufacturer_info['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_manufacturer_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_manufacturer_height'));
+			} else {
+				$data['thumb'] = '';
+			}
 
 			$url = '';
 
@@ -132,8 +165,6 @@ class ControllerProductManufacturer extends Controller {
 				'text' => $manufacturer_info['name'],
 				'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url)
 			);
-
-			$data['heading_title'] = $manufacturer_info['name'];
 
 			$data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
 

@@ -11,7 +11,7 @@ define('HTTPS_CATALOG', 'http://localhost/');
 define('DIR_APPLICATION', 'C:/xampp/htdocs/admin/');
 define('DIR_SYSTEM', 'C:/xampp/htdocs/system/');
 define('DIR_IMAGE', 'C:/xampp/htdocs/image/');
-define('DIR_STORAGE', DIR_SYSTEM . 'storage/');
+define('DIR_STORAGE', 'C:/xampp/storage/');
 define('DIR_CATALOG', 'C:/xampp/htdocs/catalog/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/template/');
@@ -34,3 +34,4 @@ define('DB_PREFIX', 'oc_');
 
 // OpenCart API
 define('OPENCART_SERVER', 'https://www.opencart.com/');
+define('OPENCARTFORUM_SERVER', 'https://opencartforum.com/');

@@ -16,7 +16,7 @@ $_['db_database']        = DB_DATABASE;
 $_['db_port']            = DB_PORT;
 
 // Session
-$_['session_autostart']  = false;
+$_['session_autostart']  = true;
 $_['session_engine']     = 'db';
 $_['session_name']       = 'OCSESSID';
 
@@ -26,7 +26,9 @@ $_['template_directory'] = '';
 $_['template_cache']     = true;
 
 // Autoload Libraries
-$_['library_autoload']   = array();
+$_['library_autoload']   = array(
+	'openbay'
+);
 
 // Actions
 $_['action_pre_action']  = array(
@@ -47,8 +49,9 @@ $_['action_event'] = array(
 		'event/language/after'
 	),	
 	'view/*/before' => array(
-		500  => 'event/theme',
+		500  => 'event/theme/override',
 		998  => 'event/language',
+		1000 => 'event/theme'
 	),
 	'language/*/after' => array(
 		'event/translation'
@@ -56,7 +59,7 @@ $_['action_event'] = array(
 	//'view/*/before' => array(
 	//	1000  => 'event/debug/before'
 	//),
-	//'controller/*/after'  => array(
-	//	'event/debug/after'
-//	)
+	'controller/*/after'  => array(
+		'event/debug/after'
+	)
 );

@@ -12,11 +12,13 @@
 */
 class Document {
 	private $title;
+	private $robots;
 	private $description;
 	private $keywords;
 	private $links = array();
 	private $styles = array();
 	private $scripts = array();
+	private $og_image;
 
 	/**
      * 
@@ -34,6 +36,14 @@ class Document {
      */
 	public function getTitle() {
 		return $this->title;
+	}
+	
+	public function setRobots($robots) {
+		$this->robots = $robots;
+	}
+	
+	public function getRobots() {
+		return $this->robots;
 	}
 
 	/**
@@ -143,5 +153,13 @@ class Document {
 		} else {
 			return array();
 		}
+	}
+	
+	public function setOgImage($image) {
+		$this->og_image = $image;
+	}
+
+	public function getOgImage() {
+		return $this->og_image;
 	}
 }
