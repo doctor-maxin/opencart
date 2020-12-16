@@ -1,0 +1,212 @@
+body {
+    --pink: #eb006f;
+}
+#logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+.logo-img, .logo-img a{
+    display: flex;
+    align-items: center;
+    text-decoration-line: none;
+}
+.logo-name {
+    margin-left: 30px;
+    font-size: 20px;
+    color: black;
+    font-weight: 300;
+}
+#logo span {
+    display: block;
+    margin-left: 15px;
+    font-size: 18px;
+    color: black;
+    text-transform: uppercase;
+}
+#logo img {
+    width: 50px;
+}
+/* header .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+.btn-primary {
+    background-color: var(--pink);
+    border: 0;
+    font-size: 14px;
+    text-shadow: none;
+    background-image: none;
+    border-radius: 5px;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+    background-color: #ce0e67;
+    border: 0;
+    box-shadow: none;
+}
+.btn-check:focus+.btn-primary, .btn-primary:focus {
+    box-shadow: none;
+    background-color: #ce0e67;
+    border: 0;
+}
+.btn-default {
+    color: #fff;
+    text-shadow: none;
+    background-color: #f6a1ca;
+    background-image: none;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px 15px;
+}
+.btn:hover {
+    color: white;
+    background-color: var(--pink);
+}
+header .row::after,  header .row::before {
+    display: none;
+}
+.menu-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+body > div:nth-child(3) {
+    padding-top: 115px;
+}
+header {
+    position: fixed;
+    top: 0;
+    align-items: center;
+    display: flex;
+    z-index: 10;
+    height: 85px;
+    box-shadow: 0 0 3px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.menu-row .menu {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    list-style: none;
+}
+.menu-row .menu a{
+    padding: 0 15px;
+    color: black;
+    text-decoration-line: none;
+    font-weight: 500;
+    font-size: 16px;
+}
+/* SEARCH BLOCK */
+#search {
+    display: flex;
+    border: 1px solid var(--pink);
+    border-radius: 5px;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 10px;
+    background-color: white;
+}
+#search i {
+    width: 14px;
+    height: 14px;
+    color: var(--pink);
+}
+#search input {
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    font-size: 14px;
+    height: auto  !important;
+    background-color: white;
+}
+#search input::placeholder {
+    color: var(--pink);
+}
+/* END SEARCH BLOCK */
+
+/* CART BLOCK */
+#cart {
+    width: 50px;
+    margin: 0 15px;
+}
+#cart > button i {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+}
+#cart > button {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    background-color: var(--pink);
+    justify-content: center;
+    background-image: none;
+    border: 0;
+    border-radius: 5px;
+}
+#cart .dropdown-menu {
+    min-width: 300px;
+}
+/* END CART BLOCK */
+
+
+/* PRODUCT BLOCK */
+#product-product {
+    padding-top: 85px;
+    width: 100%;
+}
+#carouselExampleIndicators {
+    background-color: #fff8f8;
+    border-bottom: 2px solid #ffdddd;
+    margin-bottom: 50px;
+}
+.carousel-indicators {
+    bottom: -50px;
+}
+.carousel-indicators li {
+    background-color: #f64b9c;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ffdddd;
+}
+.carousel-indicators li.active {
+    background-color:#ff0078;
+    border: 2px solid #ffdadb;
+}
+.carousel-item img{
+    margin: 0 auto;
+}
+#product-name {
+    font-size: 36px;
+    margin: 30px 0;
+    color: #414141;
+    font-weight: 500;
+    text-shadow: 2px 2px 3px #ffdddd;
+}
+#product-description {
+    text-shadow: 2px 2px 3px #ffdddd;
+    color: #414141;
+    font-size: 18px;
+    width: 80%;
+    text-align: justify;
+}
+
+#product-product .align {
+    align-items: center;
+}
+#attribute_groups {
+    margin-top: 15px;
+}
+#product-product .column_right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 30px;
+}
+/* END PRODUCT BLOCK */
